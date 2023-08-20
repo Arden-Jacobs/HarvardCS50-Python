@@ -26,21 +26,13 @@ To begin, you can either use your own PC or Mac for coding or utilize a web brow
 
 ## Repository Structure
 
-- `/code`: Contains code examples discussed during the course.
-- `/exercises`: Includes exercises inspired by real-world programming problems.
-- `/resources`: Supplementary materials, links, and references.
-- `/projects`: Advanced projects to further practice and expand your skills.
-
-## How to Contribute
-
-Contributions to this repository are welcomed! Feel free to suggest improvements, add more exercises, or provide clarifications through pull requests and issues.
+- `/lessons`: Contains code examples discussed during the course.
+- `/problem_set`: Includes exercises inspired by real-world programming problems.
+- `/project`: Advanced projects to further practice and showcase skills (final project).
 
 ## Acknowledgments
 
-I extend our gratitude to all the contributors and resources that have made this course possible.
+I extend our gratitude to CS50 for the resources that have made this journey possible. All content is to showcase my CS50 journey and my own ref for learning purpose.
 
-## License
 
-This project is licensed under the [MIT License](LICENSE).
-
-Start your journey in Python programming and enjoy the learning process!
+Start your CS50 journey in Python programming and enjoy the learning process!
