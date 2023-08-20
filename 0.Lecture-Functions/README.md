@@ -1,4 +1,4 @@
-Lecture 0
+# Lecture 0
 Creating Code with Python
 Functions
 Bugs
@@ -19,6 +19,7 @@ Def
 Returning Values
 Summing Up
 Creating Code with Python
+# VS.Code Text-Editor
 VS Code is a special type of text editor that is called a compiler. At the top, you’ll notice a text editor and, at the bottom you will see a terminal where you can execute commands.
 In the terminal, you can execute code hello.py to start coding.
 In the text editor above, you can type print("hello, world"). This is a famous canonical program that nearly all coders write during their learning process.
@@ -26,11 +27,11 @@ In the terminal window, you can execute commands. To run this program, you are g
 Recall, computers really only understand zeros and ones. Therefore, when you run python hello.py, python will interpret the text that you created in hello.py and translate it into the zeros and ones that the computer can understand.
 The result of running the python hello.py program is hello, world.
 Congrats! You just created your first program.
-Functions
+# Functions
 Functions are verbs or actions that the computer or computer language will already know how to perform.
 In your hello.py program, the print function knows how to print to the terminal window.
 The print function takes arguments. In this case, "hello, world" are the arguments that the print function takes.
-Bugs
+# Bugs
 Bugs are a natural part of coding. These are mistakes, problems for you to solve! Don’t get discouraged! This is part of the process of becoming a great programmer.
 Imagine in our hello.py program that accidentally typed print("hello, world" notice that we missed the final ) required by the compiler. If I purposefully make this mistake, you’ll the compiler will output an error in the terminal window!
 Often, the error messages will inform you of your mistake and provide you clues on how to fix them. However, there will be many times that the compiler is not this kind.
@@ -67,7 +68,7 @@ David
 We are getting closer to the result we might intend!
 
 You can learn more in Python’s documentation on data types.
-Comments
+# Comments
 Comments are a way for programmers to track what they are doing in their programs and even inform others about their intentions for a block of code. In short, they are notes for yourself and others that will see your code!
 You can add comments to your program to be able to see what it is that your program is doing. You might edit your code as follows:
 
