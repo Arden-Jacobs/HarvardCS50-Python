@@ -2,24 +2,27 @@
 
 # Main function to take user input, process the greeting, and print the bank fee
 def main():
-    # Prompt the user for a greeting
+    # Prompt the user for a greeting.
     greeting = input("Enter Greeting: ")
-    # Call the value function to determine the bank fee and print the result
-    print(value(greeting))
+    val = value(greeting)
+    print(f"${val}")
 
-# Function to determine the bank fee based on a normalized greeting
+
 def value(greeting):
-    # Normalize the greeting by converting it to lowercase
-    greeting = greeting.lower()
+    # Normalize the greeting by converting to lowercase.
+    greeting = greeting.lower().strip()
 
-    # Determine the bank fee based on the normalized greeting
+    # Determine the bank fee based on the normalized greeting.
     if "hello" in greeting:
-        return "$0"
+        return 0
     elif "h" == greeting[0]:
-        return "$20"
+        return 20
     else:
-        return "$100"
+        return 100
 
+
+if __name__ == "__main__":
+    main()
 # Check if the script is run directly
 if __name__ == "__main__":
     # Call the main function to start the greeting processing and bank fee determination
