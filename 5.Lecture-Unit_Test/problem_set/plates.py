@@ -12,27 +12,21 @@ def main():
 
 # Function to check if a given license plate is valid
 def is_valid(s):
-    # List of valid license plates
-    valid_plates = ["cs50", "ecto88", "nrvous"]
+    # Extract the prefix (first 2 characters) from the input plate
+    prefix = s[:2]
 
-    # Check if the lowercase version of the input plate is in the list of valid plates
-    if s.lower() in valid_plates:
+    # Check if the prefix is composed of alphabetic characters and the entire plate is alphanumeric
+    # Also, check if the length of the plate is between 2 and 6 characters
+    if (prefix.isalpha() and s.isalnum()) and (len(s) <= 6 and len(s) >= 2):
+        for i in s:
+            if i.isdigit():
+                indice = s.index(i)
+                # Check if the remaining part of the plate consists of digits and that the digit is not "0"
+                if s[indice:].isdigit() and i != "0":
+                    return True
+                else:
+                    return False
         return True
-
-    # Check if the length of the input plate is less than 4 characters
-    if len(s) < 4:
-        return False
-
-    # Separate the prefix (first 3 characters) and suffix (remaining characters)
-    prefix = s[:3]
-    suffix = s[3:]
-
-    # Check if the prefix is composed of alphabetic characters, the suffix is composed of digits,
-    # and the total length of the input plate is 4, 5, or 6 characters
-    if prefix.isalpha() and suffix.isdigit() and (len(s) == 4 or len(s) == 5 or len(s) == 6):
-        return True
-
-    # If none of the conditions above are met, the plate is not valid
     return False
 
 # Check if the script is run directly
@@ -41,17 +35,17 @@ if __name__ == "__main__":
     main()
 
 # Explanation:
-# This script takes user input for a license plate, checks if the input plate is valid using the is_valid function,
+# This script prompts the user for a license plate, checks if the input plate is valid using the is_valid function,
 # and then prints "Valid" or "Invalid" accordingly.
 
-# The main function "main()" prompts the user for a license plate, calls the "is_valid()" function to check its validity,
-# and then prints "Valid" or "Invalid".
+# The main function "main()" prompts the user for a license plate and calls the "is_valid()" function to check its validity.
+# It then prints "Valid" or "Invalid" based on the result.
 
 # The "is_valid()" function performs various checks to determine if the given license plate is valid:
-# - It checks if the lowercase version of the input plate is in the list of valid plates.
-# - It checks if the length of the input plate is less than 4 characters (invalid for the format).
-# - It separates the prefix and suffix of the input plate and checks if they follow the alphabetic-numeric pattern.
-# - It checks if the total length of the input plate is 4, 5, or 6 characters.
+# - It extracts the prefix (first 2 characters) from the input plate and checks if it is composed of alphabetic characters.
+# - It checks if the entire plate is alphanumeric and if its length is between 2 and 6 characters.
+# - It iterates through the characters of the plate to find digits. If digits are found, it checks if the remaining part of
+#   the plate consists of digits and if the digit is not "0". If these conditions are met, the plate is valid.
 
 # The "__name__ == '__main__':" check at the end of the script ensures that the main function is executed only
 # when the script is run directly, not when it's imported as a module.
