@@ -1,56 +1,64 @@
-# fuel.py - Script to convert a fraction to a percentage and represent it with a gauge
+# fuel.py - Fraction to Percentage Converter with Gauge Levels
 
-# Main function to take user input, convert the fraction to a percentage, and represent it with a gauge
+# Main function to take user input, convert a fraction to a percentage, and print the gauge result
 def main():
-    # Prompt the user for a fraction and call the convert function to calculate the percentage
+    # Prompt the user for a fraction
     fraction = input("Enter a Fraction: ")
+    # Convert the fraction to a percentage using the convert function
     percentage = convert(fraction)
-    # Call the gauge function to represent the percentage with a gauge
-    gauge(percentage)
+    # Print the gauge result using the gauge function
+    print(gauge(percentage))
 
-# Function to convert a fraction to a percentage
+# Function to convert a given fraction to a percentage
 def convert(fraction):
     while True:
+        # Find the position of the "/" character in the input fraction
+        div = fraction.find("/")
         try:
-            # Split the user-provided fraction into two parts
-            n1, n2 = fraction.split("/")
-            n1, n2 = int(n1), int(n2)
-            
-            # Check if the fraction is valid and calculate the percentage
-            if n1 > n2 or n2 == 0:
-                fraction = input("Enter a Fraction: ")
-            else:
-                # Calculate the percentage and return the rounded value
-                return round((n1 / n2) * 100)
-        except (ValueError, ZeroDivisionError):
-            pass
+            # Extract the numerator and denominator from the input fraction
+            n1, n2 = int(fraction[0:div]), int(fraction[div + 1:])
 
-# Function to represent the percentage with a gauge
+            # Check if the denominator is non-positive and raise a ZeroDivisionError if needed
+            if n2 <= 0:
+                raise ZeroDivisionError
+            # Check if the fraction is valid by comparing the numerator and denominator
+            if n1 > n2:
+                # If the fraction is invalid, prompt the user for another fraction
+                fraction = input("Enter a Fraction: ")
+                continue
+            else:
+                # Calculate and return the percentage based on the valid fraction
+                return int((n1 / n2) * 100)
+        except (ValueError, ZeroDivisionError):
+            # Raise errors for invalid input formats or zero denominator
+            raise
+
+# Function to determine the gauge level based on the percentage
 def gauge(percentage):
     if percentage <= 1:
-        print("E")
+        return "E"
     elif percentage >= 99:
-        print("F")
+        return "F"
     else:
-        print(f"{percentage}%")
+        return f"{percentage}%"
 
 # Check if the script is run directly
 if __name__ == "__main__":
-    # Call the main function to start the conversion and gauge representation
+    # Call the main function to start the fraction to percentage conversion and gauge printing
     main()
 
 # Explanation:
-# This script prompts the user for a fraction, converts it to a percentage using the convert function,
-# and then represents the percentage with a gauge using the gauge function.
+# This script prompts the user for a fraction, converts the fraction to a percentage using the convert function,
+# and then determines the gauge level using the gauge function. The gauge result is then printed.
 
-# The main function "main()" prompts the user for a fraction and calls the "convert()" function to calculate
-# the percentage. It then calls the "gauge()" function to represent the percentage using a gauge.
+# The main function "main()" prompts the user for a fraction, calls the "convert()" function to convert it to a percentage,
+# and calls the "gauge()" function to determine the gauge level based on the percentage. It then prints the gauge result.
 
-# The "convert()" function takes a fraction as input, splits it into two parts, and calculates the percentage.
-# It checks if the fraction is valid and returns the calculated percentage as a rounded value.
+# The "convert()" function takes the input fraction, extracts the numerator and denominator, and performs various checks to
+# ensure the fraction is valid. It calculates the percentage and returns it.
 
-# The "gauge()" function takes a percentage as input and prints "E" if the percentage is less than or equal to 1,
-# "F" if the percentage is greater than or equal to 99, or the percentage value followed by "%" otherwise.
+# The "gauge()" function takes the percentage as input and determines the gauge level ("E" for low, "F" for high, or the
+# percentage value) based on the input percentage.
 
-# The "__name__ == '__main__':" check at the end of the script ensures that the main function is executed only
-# when the script is run directly, not when it's imported as a module.
+# The "__name__ == '__main__':" check at the end of the script ensures that the main function is executed only when the
+# script is run directly, not when it's imported as a module.
