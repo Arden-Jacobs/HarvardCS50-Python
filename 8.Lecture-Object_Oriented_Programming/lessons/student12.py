@@ -30,7 +30,7 @@ def main():
 def get_student():
     # Collect the student's name and house using the 'input' function.
     name = input("Name: ")
-    house = input("House (Gryffindor, Hufflepuff, Ravenclaw, Slytherin): ")
+    house = input("House: ")
     
     # Create an instance of the 'Student' class directly and pass the collected information as arguments to its constructor.
     return Student(name, house)
