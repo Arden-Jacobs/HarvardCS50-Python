@@ -2,25 +2,28 @@ from datetime import date
 import inflect
 import sys
 
+p = inflect.engine()
+
 
 def main():
-    date = get_mintues(input("Date: "))
-    print(convert(date)capitalize())
-    
+    date = get_mintues(input("Date of Birth: "))
+    print(f"{convert(date)}")
+
 
 def get_mintues(s):
     try:
         dob = date.fromisoformat(s)
         current = date.today()
         day = current - dob
-        return(day.days*24*60)
+        return (int(day.days * 24 * 60))
     except (ValueError, TypeError):
         sys.exit("Invalid date")
 
+
 def convert(d):
-    p = inflect.engine()
     words = p.number_to_words(d, andword="")
-    return (words + " mintues")
+    output = words + " minutes"
+    return output.capitalize()
 
 
 if __name__ == "__main__":
