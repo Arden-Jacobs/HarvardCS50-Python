@@ -15,3 +15,11 @@ def main():
     if expense_total and income_total != None:
         net_income = income_total - expense_total
         print(f"Net Income: {net_income}")
+
+
+def income_journal(**kwargs):
+    return(kwargs)
+
+
+def expenses_journal(**kwargs):
+    return(kwargs)
