@@ -85,3 +85,22 @@ def write_expense_header():
     with open("Expense_Journal.csv", "w") as file:
         writer = csv.DictWriter(file, fieldnames=["date", "item", "supplier", "amount", "category"])
         writer.writeheader()
+
+
+def write_income_enteries(today_date, item, source, amount):
+    try:
+        with open("Income_Journal.csv", "a") as file:
+            writer = csv.DictWriter(file, fieldnames=["date", "item", "source", "amount"])
+
+            writer.writerow({"date": f"{today_date}", "item": item, "source": source, "amount": amount})
+    except:
+        pass
+
+
+def write_expense_enteries(today_date, item, supplier, amount, category):
+     try:
+        with open("Expense_Journal.csv", "a") as file:
+            writer = csv.DictWriter(file, fieldnames=["date", "item", "supplier", "amount", "category"])
+            writer.writerow({"date": f"{today_date}", "item": item, "supplier": supplier, "amount": amount, "category": category})
+     except:
+         pass
