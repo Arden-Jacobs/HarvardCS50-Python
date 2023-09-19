@@ -64,3 +64,13 @@ def get_expense():
             return False
     return expense
 
+
+def get_total(data):
+    total = 0
+    for i in range(len(data)):
+        if i != 0:
+            for k,v in data[i].items():
+                if k == 'amount':
+                    total += v
+    return total
+
