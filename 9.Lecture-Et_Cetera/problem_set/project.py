@@ -74,3 +74,14 @@ def get_total(data):
                     total += v
     return total
 
+
+def write_income_header():
+    with open("Income_Journal.csv", "w") as file:
+        writer = csv.DictWriter(file, fieldnames=["date", "item", "source", "amount"])
+        writer.writeheader()
+
+
+def write_expense_header():
+    with open("Expense_Journal.csv", "w") as file:
+        writer = csv.DictWriter(file, fieldnames=["date", "item", "supplier", "amount", "category"])
+        writer.writeheader()
