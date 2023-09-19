@@ -43,3 +43,24 @@ def get_income():
             return False
     return income
 
+
+def get_expense():
+    today_date = date.today()
+    expense = ["Expense Statement"]
+    while True:
+        try:
+            if input("Would you like to create a new Expense entry (Y or N): ") == "Y":
+                item = input("Enter item name: ")
+                supplier = input("Enter supplier name: ")
+                amount = int(input("Enter amount: "))
+                category = input("Enter expense category: ")  # Prompt for category input
+                expense.append(expenses_journal(date=today_date, item=item, supplier=supplier, amount=amount, category=category))
+                write_expense_enteries(today_date, item, supplier, amount, category)
+                expenses_by_category(category,amount)
+            else:
+                break
+            ...
+        except:
+            return False
+    return expense
+
