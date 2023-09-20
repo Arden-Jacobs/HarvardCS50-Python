@@ -33,7 +33,21 @@ def main():
 
 
 def income_journal(**kwargs):
-    return(kwargs)
+    """
+    Record income entries.
+
+    Args:
+        **kwargs: Variable keyword arguments containing the income entry details.
+            - date (str): The date of the income entry.
+            - item (str): The name of the item.
+            - source (str): The source of the income.
+            - amount (int): The amount of income.
+
+    Returns:
+        dict: A dictionary containing the income entry details.
+    """
+
+    return kwargs
 
 
 def expenses_journal(**kwargs):
