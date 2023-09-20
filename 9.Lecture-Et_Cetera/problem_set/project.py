@@ -70,6 +70,13 @@ def expenses_journal(**kwargs):
 
 
 def get_income():
+    """
+    Retrieve income entries.
+
+    Returns:
+        list: A list of dictionaries containing income entry details.
+    """
+
     today_date = date.today()
     income = ["Income Statement"]
     while True:
@@ -82,7 +89,6 @@ def get_income():
                 write_income_enteries(today_date, item, source, amount)
             else:
                 break
-            ...
         except:
             return False
     return income
