@@ -191,7 +191,7 @@ def write_income_enteries(today_date, item, source, amount):
 
 
 def write_expense_enteries(today_date, item, supplier, amount, category):
-     """
+    """
     Write expense entries to the CSV file.
 
     Args:
@@ -205,9 +205,37 @@ def write_expense_enteries(today_date, item, supplier, amount, category):
         None
     """
 
-     try:
+    try:
         with open("Expense_Journal.csv", "a") as file:
             writer = csv.DictWriter(file, fieldnames=["date", "item", "supplier", "amount", "category"])
             writer.writerow({"date": f"{today_date}", "item": item, "supplier": supplier, "amount": amount, "category": category})
-     except:
-         pass
+    except:
+        pass
+
+
+def expenses_by_category(data):
+    """
+    Calculate expenses by category.
+
+    Args:
+        data (list): A list of dictionaries containing expense entry details.
+
+    Returns:
+        dict: A dictionary mapping expense categories to their total amounts.
+    """
+
+    expense_category = {}
+    category = ""
+    amount = 0
+
+    for i in range(len(data)):
+        if i != 0:
+            for k,v in data[i].items():
+                if "category" in k:
+                    category = v
+                if "amount" in k:
+                    amount = v
+            if category not in expense_category:
+                expense_category[category] = 0
+            expense_category[category] += amount
+    return expense_category
