@@ -95,6 +95,13 @@ def get_income():
 
 
 def get_expense():
+    """
+    Retrieve expense entries.
+
+    Returns:
+        list: A list of dictionaries containing expense entry details.
+    """
+
     today_date = date.today()
     expense = ["Expense Statement"]
     while True:
@@ -106,7 +113,6 @@ def get_expense():
                 category = input("Enter expense category: ")  # Prompt for category input
                 expense.append(expenses_journal(date=today_date, item=item, supplier=supplier, amount=amount, category=category))
                 write_expense_enteries(today_date, item, supplier, amount, category)
-                expenses_by_category(category,amount)
             else:
                 break
             ...
