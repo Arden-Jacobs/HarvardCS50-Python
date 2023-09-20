@@ -3,10 +3,22 @@ import csv
 
 
 def main():
-    write_income_header()
-    write_expense_header()
+    """
+    Main function to run the financial tracking app.
+
+    This function orchestrates the entire financial tracking process.
+    It retrieves income and expense data, calculates totals, and displays results.
+
+    Returns:
+        None
+    """
+
+    # write_income_header()
+    # write_expense_header()
+
     income_array = get_income()
     expense_array = get_expense()
+
     income_total = get_total(income_array)
     expense_total = get_total(expense_array)
     print(f"Total Income: {income_total}")
@@ -15,6 +27,9 @@ def main():
     if expense_total and income_total != None:
         net_income = income_total - expense_total
         print(f"Net Income: {net_income}")
+
+    expense_category = expenses_by_category(expense_array)
+    display_expenses_by_category(expense_category)
 
 
 def income_journal(**kwargs):
