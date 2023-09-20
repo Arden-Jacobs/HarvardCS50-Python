@@ -142,12 +142,26 @@ def get_total(data):
 
 
 def write_income_header():
+    """
+    Write the header for the income CSV file.
+
+    Returns:
+        None
+    """
+
     with open("Income_Journal.csv", "w") as file:
         writer = csv.DictWriter(file, fieldnames=["date", "item", "source", "amount"])
         writer.writeheader()
 
 
 def write_expense_header():
+    """
+    Write the header for the expense CSV file.
+
+    Returns:
+        None
+    """
+
     with open("Expense_Journal.csv", "w") as file:
         writer = csv.DictWriter(file, fieldnames=["date", "item", "supplier", "amount", "category"])
         writer.writeheader()
