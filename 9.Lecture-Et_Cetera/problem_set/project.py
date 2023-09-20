@@ -122,6 +122,16 @@ def get_expense():
 
 
 def get_total(data):
+    """
+    Calculate the total amount for a given list of data.
+
+    Args:
+        data (list): A list of dictionaries containing financial data.
+
+    Returns:
+        int: The total amount.
+    """
+
     total = 0
     for i in range(len(data)):
         if i != 0:
