@@ -168,6 +168,19 @@ def write_expense_header():
 
 
 def write_income_enteries(today_date, item, source, amount):
+    """
+    Write income entries to the CSV file.
+
+    Args:
+        today_date (str): The date of the income entry.
+        item (str): The name of the item.
+        source (str): The source of the income.
+        amount (int): The amount of income.
+
+    Returns:
+        None
+    """
+
     try:
         with open("Income_Journal.csv", "a") as file:
             writer = csv.DictWriter(file, fieldnames=["date", "item", "source", "amount"])
