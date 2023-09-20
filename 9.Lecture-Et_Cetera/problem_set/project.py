@@ -239,3 +239,23 @@ def expenses_by_category(data):
                 expense_category[category] = 0
             expense_category[category] += amount
     return expense_category
+
+
+def display_expenses_by_category(data):
+    """
+    Display expenses by category.
+
+    Args:
+        data (dict): A dictionary mapping expense categories to their total amounts.
+
+    Returns:
+        None
+    """
+
+    print("Expenses by Category:")
+    for category, total_amount in data.items():
+        print(f"{category}: R{total_amount:.2f}")
+
+
+if __name__ == "__main__":
+    main()
