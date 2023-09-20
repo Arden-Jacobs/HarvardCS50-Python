@@ -51,7 +51,22 @@ def income_journal(**kwargs):
 
 
 def expenses_journal(**kwargs):
-    return(kwargs)
+    """
+    Record expense entries.
+
+    Args:
+        **kwargs: Variable keyword arguments containing the expense entry details.
+            - date (str): The date of the expense entry.
+            - item (str): The name of the item.
+            - supplier (str): The supplier of the item.
+            - amount (int): The amount of the expense.
+            - category (str): The category of the expense.
+
+    Returns:
+        dict: A dictionary containing the expense entry details.
+    """
+
+    return kwargs
 
 
 def get_income():
