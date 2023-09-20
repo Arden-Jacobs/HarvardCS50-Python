@@ -191,6 +191,20 @@ def write_income_enteries(today_date, item, source, amount):
 
 
 def write_expense_enteries(today_date, item, supplier, amount, category):
+     """
+    Write expense entries to the CSV file.
+
+    Args:
+        today_date (str): The date of the expense entry.
+        item (str): The name of the item.
+        supplier (str): The supplier of the item.
+        amount (int): The amount of the expense.
+        category (str): The category of the expense.
+
+    Returns:
+        None
+    """
+
      try:
         with open("Expense_Journal.csv", "a") as file:
             writer = csv.DictWriter(file, fieldnames=["date", "item", "supplier", "amount", "category"])
