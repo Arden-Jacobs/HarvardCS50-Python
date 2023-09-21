@@ -41,3 +41,15 @@ def test_expenses_journal():
     }
 
 
+# Test get_total function
+def test_get_total():
+    """
+    Test the get_total function.
+    """
+    data = [
+        {"date": "2023-09-21", "item": "Item 1", "amount": 100},
+        {"date": "2023-09-22", "item": "Item 2", "amount": 200},
+    ]
+    total = get_total(data)
+    assert total == 300
+
