@@ -53,3 +53,16 @@ def test_get_total():
     total = get_total(data)
     assert total == 300
 
+
+# Test expenses_by_category function
+def test_expenses_by_category():
+    """
+    Test the expenses_by_category function.
+    """
+    data = [
+        {"date": "2023-09-21", "item": "Item 1", "amount": 50, "category": "Category A"},
+        {"date": "2023-09-22", "item": "Item 2", "amount": 75, "category": "Category B"},
+        {"date": "2023-09-23", "item": "Item 3", "amount": 100, "category": "Category A"},
+    ]
+    category_totals = expenses_by_category(data)
+    assert category_totals == {"Category A": 150, "Category B": 75}
