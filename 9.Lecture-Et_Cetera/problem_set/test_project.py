@@ -18,3 +18,26 @@ def test_income_journal():
         "source": "Test Source",
         "amount": 100,
     }
+
+
+# Test expenses_journal function
+def test_expenses_journal():
+    """
+    Test the expenses_journal function.
+    """
+    entry = expenses_journal(
+        date="2023-09-21",
+        item="Test Item",
+        supplier="Test Supplier",
+        amount=50,
+        category="Test Category",
+    )
+    assert entry == {
+        "date": "2023-09-21",
+        "item": "Test Item",
+        "supplier": "Test Supplier",
+        "amount": 50,
+        "category": "Test Category",
+    }
+
+
