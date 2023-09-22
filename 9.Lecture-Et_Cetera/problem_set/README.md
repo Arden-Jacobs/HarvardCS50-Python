@@ -4,9 +4,9 @@ The Financial Tracker App is a Python-based tool that allows you to conveniently
 
 # Creator Details
 
-Name: Arden Jacobs
-City: Cape Town
-Country: South Africa
+Name: Arden Jacobs<br>
+City: Cape Town<br>
+Country: South Africa<br>
 
 ## Table of Contents
 
