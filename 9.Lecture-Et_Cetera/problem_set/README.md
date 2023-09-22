@@ -64,40 +64,40 @@ It will also display expenses by category.
 
 # Functions
 
-- main()
+- main()<br>
     Run the financial tracking app.
 
-- income_journal(**kwargs)
+- income_journal(**kwargs)<br>
     Record income entries.
 
-- expenses_journal(**kwargs)
+- expenses_journal(**kwargs)<br>
     Record expense entries.
 
-- get_income()
+- get_income()<br>
     Retrieve income entries.
 
-- get_expense()
+- get_expense()<br>
     Retrieve expense entries.
 
-- get_total(data)
+- get_total(data)<br>
     Calculate the total amount for a given list of data.
 
-- write_income_header()
+- write_income_header()<br>
     Write the header for the income CSV file.
 
-- write_expense_header()
+- write_expense_header()<br>
     Write the header for the expense CSV file.
 
-- write_income_entries(today_date, item, source, amount)
+- write_income_entries(today_date, item, source, amount)<br>
     Write income entries to the CSV file.
 
-- write_expense_entries(today_date, item, supplier, amount, category)
+- write_expense_entries(today_date, item, supplier, amount, category)<br>
     Write expense entries to the CSV file.
 
-- expenses_by_category(data)
+- expenses_by_category(data)<br>
     Calculate expenses by category.
 
-- display_expenses_by_category(data)
+- display_expenses_by_category(data)<br>
     Display expenses by category.
 
 # File Structure
