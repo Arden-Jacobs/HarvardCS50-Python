@@ -101,10 +101,10 @@ It will also display expenses by category.
     Display expenses by category.
 
 # File Structure
-project.py: The main script for the Financial Tracker App.
-test_project.py: The test script for the Financial Tracker App.
-Income_Journal.csv: CSV file to store income entries.
-Expense_Journal.csv: CSV file to store expense entries.
+project.py: The main script for the Financial Tracker App.<br>
+test_project.py: The test script for the Financial Tracker App.<br>
+Income_Journal.csv: CSV file to store income entries.<br>
+Expense_Journal.csv: CSV file to store expense entries.<br>
 
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
