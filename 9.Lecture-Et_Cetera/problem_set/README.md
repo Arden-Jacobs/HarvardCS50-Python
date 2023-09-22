@@ -40,19 +40,14 @@ To start using the Financial Tracker App, follow these steps:
 
 1. Clone the repository to your local machine:
 
-   ```shell
    git clone <repository_url>
 
 # Navigate to the project directory:
 
-shell
-Copy code
 cd Financial-Tracker-App
 
 # Run the app:
 
-shell
-Copy code
 python project.py
 
 # Usage:
@@ -70,40 +65,40 @@ It will also display expenses by category.
 # Functions
 
 - main()
-- Run the financial tracking app.
+    Run the financial tracking app.
 
 - income_journal(**kwargs)
-- Record income entries.
+    Record income entries.
 
 - expenses_journal(**kwargs)
-- Record expense entries.
+    Record expense entries.
 
 - get_income()
-- Retrieve income entries.
+    Retrieve income entries.
 
 - get_expense()
-- Retrieve expense entries.
+    Retrieve expense entries.
 
 - get_total(data)
-- Calculate the total amount for a given list of data.
+    Calculate the total amount for a given list of data.
 
 - write_income_header()
-- Write the header for the income CSV file.
+    Write the header for the income CSV file.
 
 - write_expense_header()
-- Write the header for the expense CSV file.
+    Write the header for the expense CSV file.
 
 - write_income_entries(today_date, item, source, amount)
-- Write income entries to the CSV file.
+    Write income entries to the CSV file.
 
 - write_expense_entries(today_date, item, supplier, amount, category)
-- Write expense entries to the CSV file.
+    Write expense entries to the CSV file.
 
 - expenses_by_category(data)
-- Calculate expenses by category.
+    Calculate expenses by category.
 
 - display_expenses_by_category(data)
-- Display expenses by category.
+    Display expenses by category.
 
 # File Structure
 project.py: The main script for the Financial Tracker App.
