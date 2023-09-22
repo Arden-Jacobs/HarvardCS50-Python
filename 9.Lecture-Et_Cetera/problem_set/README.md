@@ -1,7 +1,12 @@
 # Financial Tracker App
-    #### Video Demo:  <URL HERE>
 
 The Financial Tracker App is a Python-based tool that allows you to conveniently track your income and expenses. It provides an easy way to record financial transactions, calculate totals, and analyze expenses by category.
+
+# Creator Details
+
+Name: Arden Jacobs
+City: Cape Town
+Country: South Africa
 
 ## Table of Contents
 
