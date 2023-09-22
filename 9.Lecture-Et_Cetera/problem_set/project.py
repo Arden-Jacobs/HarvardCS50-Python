@@ -1,5 +1,6 @@
 from datetime import date
 import csv
+import sys
 
 
 def main():
@@ -12,24 +13,26 @@ def main():
     Returns:
         None
     """
+    try:
+        # write_income_header()
+        # write_expense_header()
 
-    # write_income_header()
-    # write_expense_header()
+        income_array = get_income()
+        expense_array = get_expense()
 
-    income_array = get_income()
-    expense_array = get_expense()
+        income_total = get_total(income_array)
+        expense_total = get_total(expense_array)
+        print(f"Total Income: {income_total}")
+        print(f"Total Expenses: {expense_total}")
 
-    income_total = get_total(income_array)
-    expense_total = get_total(expense_array)
-    print(f"Total Income: {income_total}")
-    print(f"Total Expenses: {expense_total}")
+        if expense_total and income_total != None:
+            net_income = income_total - expense_total
+            print(f"Net Income: {net_income}")
 
-    if expense_total and income_total != None:
-        net_income = income_total - expense_total
-        print(f"Net Income: {net_income}")
-
-    expense_category = expenses_by_category(expense_array)
-    display_expenses_by_category(expense_category)
+        expense_category = expenses_by_category(expense_array)
+        display_expenses_by_category(expense_category)
+    except ValueError as e:
+        sys.exit(f"ValueError: {e}")
 
 
 def income_journal(**kwargs):
@@ -81,16 +84,16 @@ def get_income():
     income = ["Income Statement"]
     while True:
         try:
-            if input("Would you like to create a new Income entery (Y or N): ") == "Y":
-                item = input("Enter child name: ")
-                source = input("Enter parent name: ")
-                amount = int(input("Enter amount: "))
+            if input("Would you like to create a new Income entery (Y or N): ").strip().upper() == "Y":
+                item = input("Enter item name: ").strip().capitalize()
+                source = input("Enter source name: ").strip().capitalize()
+                amount = int(input("Enter amount: ").strip())
                 income.append(income_journal(date=f"{today_date}", item=item, source=source, amount=amount))
                 write_income_enteries(today_date, item, source, amount)
             else:
                 break
-        except:
-            return False
+        except (ValueError,TypeError) as e:
+            sys.exit(f"Error: {e}")
     return income
 
 
@@ -106,18 +109,17 @@ def get_expense():
     expense = ["Expense Statement"]
     while True:
         try:
-            if input("Would you like to create a new Expense entry (Y or N): ") == "Y":
-                item = input("Enter item name: ")
-                supplier = input("Enter supplier name: ")
-                amount = int(input("Enter amount: "))
-                category = input("Enter expense category: ")  # Prompt for category input
+            if input("Would you like to create a new Expense entry (Y or N): ").strip().upper() == "Y":
+                item = input("Enter item name: ").strip().capitalize()
+                supplier = input("Enter supplier name: ").strip().capitalize()
+                amount = int(input("Enter amount: ").strip())
+                category = input("Enter expense category: ").strip().capitalize()
                 expense.append(expenses_journal(date=today_date, item=item, supplier=supplier, amount=amount, category=category))
                 write_expense_enteries(today_date, item, supplier, amount, category)
             else:
                 break
-            ...
-        except:
-            return False
+        except (ValueError,TypeError) as e:
+            sys.exit(f"Error: {e}")
     return expense
 
 
@@ -133,12 +135,15 @@ def get_total(data):
     """
 
     total = 0
-    for i in range(len(data)):
-        if i != 0:
-            for k,v in data[i].items():
-                if k == 'amount':
-                    total += v
-    return total
+    try:
+        for i in range(len(data)):
+            if i != 0:
+                for k,v in data[i].items():
+                    if k == 'amount':
+                        total += int(v)
+        return total
+    except (ValueError,TypeError) as e:
+        sys.exit(f"Error: {e}")
 
 
 def write_income_header():
@@ -186,12 +191,12 @@ def write_income_enteries(today_date, item, source, amount):
             writer = csv.DictWriter(file, fieldnames=["date", "item", "source", "amount"])
 
             writer.writerow({"date": f"{today_date}", "item": item, "source": source, "amount": amount})
-    except:
-        pass
+    except ValueError as e:
+            sys.exit(f"ValueError: {e}")
 
 
 def write_expense_enteries(today_date, item, supplier, amount, category):
-    """
+     """
     Write expense entries to the CSV file.
 
     Args:
@@ -205,12 +210,12 @@ def write_expense_enteries(today_date, item, supplier, amount, category):
         None
     """
 
-    try:
+     try:
         with open("Expense_Journal.csv", "a") as file:
             writer = csv.DictWriter(file, fieldnames=["date", "item", "supplier", "amount", "category"])
             writer.writerow({"date": f"{today_date}", "item": item, "supplier": supplier, "amount": amount, "category": category})
-    except:
-        pass
+     except ValueError as e:
+            sys.exit(f"ValueError: {e}")
 
 
 def expenses_by_category(data):
@@ -223,22 +228,24 @@ def expenses_by_category(data):
     Returns:
         dict: A dictionary mapping expense categories to their total amounts.
     """
+    try:
+        expense_category = {}
+        category = ""
+        amount = 0
 
-    expense_category = {}
-    category = ""
-    amount = 0
-
-    for i in range(len(data)):
-        if i != 0:
-            for k,v in data[i].items():
-                if "category" in k:
-                    category = v
-                if "amount" in k:
-                    amount = v
-            if category not in expense_category:
-                expense_category[category] = 0
-            expense_category[category] += amount
-    return expense_category
+        for i in range(len(data)):
+            if i != 0:
+                for k,v in data[i].items():
+                    if "category" in k:
+                        category = v
+                    if "amount" in k:
+                        amount = v
+                if category not in expense_category:
+                    expense_category[category] = 0
+                expense_category[category] += amount
+        return expense_category
+    except (ValueError,TypeError) as e:
+        sys.exit(f"Error: {e}")
 
 
 def display_expenses_by_category(data):
