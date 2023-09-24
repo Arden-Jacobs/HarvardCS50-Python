@@ -18,6 +18,7 @@ def test_income_journal():
         "source": "Test Source",
         "amount": 100,
     }
+    # check errors
 
 
 # Test expenses_journal function
@@ -39,6 +40,8 @@ def test_expenses_journal():
         "amount": 50,
         "category": "Test Category",
     }
+    # check errors
+
 
 
 # Test get_total function
@@ -52,6 +55,7 @@ def test_get_total():
     ]
     total = get_total(data)
     assert total == 300
+    # check errors
 
 
 # Test expenses_by_category function
@@ -66,3 +70,4 @@ def test_expenses_by_category():
     ]
     category_totals = expenses_by_category(data)
     assert category_totals == {"Category A": 150, "Category B": 75}
+    # check errors
